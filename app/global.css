@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-linear {
+    background: 'linear-gradient(180deg, rgba(255, 255, 255, 0) 28%, white 64%)'
+}
+
+.onboarding-img {
+    width: 488.24px;
+    height: 490px
+}

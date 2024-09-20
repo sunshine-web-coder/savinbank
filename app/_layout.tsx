@@ -4,8 +4,10 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
+import './global.css';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { ReceiverProvider } from '@/provider/ReceiverProvider';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -13,7 +15,9 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    PlusJakartaSans_bold: require('../assets/fonts/PlusJakartaSans-Bold.ttf'),
+    PlusJakartaSans_semibold: require('../assets/fonts/PlusJakartaSans-SemiBold.ttf'),
+    PlusJakartaSans_normal: require('../assets/fonts/PlusJakartaSans-Regular.ttf')
   });
 
   useEffect(() => {
@@ -28,10 +32,15 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
+      <ReceiverProvider>
+        <Stack>
+          <Stack.Screen name="(onboarding)" options={{ headerShown: false }} />
+          <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+          <Stack.Screen name="biometric" options={{ headerShown: false }} />
+          <Stack.Screen name="(account)" options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+      </ReceiverProvider>
     </ThemeProvider>
   );
 }

@@ -1,11 +1,11 @@
 {
   "expo": {
     "name": "savinbank",
-    "slug": "savinbank",
+    "slug": "savin-bank",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "savinbank",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash.png",
@@ -19,7 +19,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.webdevu02.savinbank"
     },
     "web": {
       "bundler": "metro",
@@ -31,6 +32,12 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a803332b-2792-4864-8582-a1e1aa0a76b0"
+      }
+    },
+    "owner": "webdevu02"
   }
 }
